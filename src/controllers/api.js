@@ -1,3 +1,5 @@
+import person from '../models'
+
 export const Get = (ctx, next) => {
   ctx.body = {
     result: 'get',
@@ -9,30 +11,16 @@ export const Get = (ctx, next) => {
 }
 
 export const Post = async (ctx, next) => {
+  // name: ctx.params.name,
+  // para: ctx.request.body,
+  const list = await person.findAndCountAll({
+    offset: 10,
+    limit: 2
+  })
   ctx.body = {
-    result: 'post',
-    name: ctx.params.name,
-    para: ctx.request.body
-  }
-
-  next()
-}
-
-export const Put = (ctx, next) => {
-  ctx.body = {
-    result: 'put',
-    name: ctx.params.name,
-    para: ctx.request.body
-  }
-
-  next()
-}
-
-export const Delete = (ctx, next) => {
-  ctx.body = {
-    result: 'delete',
-    name: ctx.params.name,
-    para: ctx.request.body
+    code: 200,
+    data: list,
+    message: '查询成功'
   }
 
   next()

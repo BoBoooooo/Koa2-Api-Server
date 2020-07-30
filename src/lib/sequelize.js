@@ -15,6 +15,9 @@ const sequelize = new Sequelize(
       supportBigNumbers: true,
       bigNumberStrings: true
     },
+    define: {
+      timestamps: false
+    },
     pool: {
       max: 50,
       min: 0,
@@ -28,8 +31,6 @@ sequelize
   .authenticate()
   .then(() => {
     console.log('******Connection has been established successfully.********')
-    console.log('******测试结束，即将退出！！！********')
-    process.exit() // 结束进程
   })
   .catch((err) => {
     console.error(

@@ -16,6 +16,7 @@ import ErrorRoutesCatch from './middleware/ErrorRoutesCatch'
 import ErrorRoutes from './routes/error-routes'
 import jwt from 'koa-jwt'
 import fs from 'fs'
+
 // import PluginLoader from './lib/PluginLoader'
 
 const app = new Koa2()
@@ -40,7 +41,7 @@ app
   .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] }))
   .use(KoaBody({
     multipart: true,
-    parsedMethods: ['POST', 'PUT', 'PATCH', 'GET', 'HEAD', 'DELETE'], // parse GET, HEAD, DELETE requests
+    parsedMethods: ['POST', 'PATCH', 'GET', 'HEAD'], // parse GET, HEAD, DELETE requests
     formidable: {
       uploadDir: path.join(__dirname, '../assets/uploads/tmp')
     },

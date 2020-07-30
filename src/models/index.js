@@ -1,2 +1,5 @@
-const requireDirectory = require('require-directory')
-module.exports = requireDirectory(module)
+import sequelize from '../lib/sequelize'
+
+const person = sequelize.import('./person.js')
+
+export default person
