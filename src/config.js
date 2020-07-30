@@ -21,10 +21,10 @@ export const System = {
 }
 
 export const DB = {
-  host: '116.62.78.229', // 服务器地址
+  host: 'localhost', // 服务器地址
   port: 3306, // 数据库端口号
   username: 'root', // 数据库用户名
   password: 'Anshare.cc', // 数据库密码
-  database: 'test', // 数据库名称
+  database: 'sw3k_tm', // 数据库名称
   prefix: 'api_' // 默认"api_"
 }
