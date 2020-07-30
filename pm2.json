@@ -1,0 +1,17 @@
+[
+  {
+    "name": "RESRful API Server",
+    "script": "./dist/app.js",
+    "watch": false, 
+    "ignore_watch": ["node_modules", "build", "logs"],
+    "out_file": "./logs/out.log",
+    "error_file": "./logs/error.log",
+    "max_memory_restart": "2G", 
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "exec_mode": "cluster",
+    "instances": "max", 
+    "autorestart": true 
+  }
+]
