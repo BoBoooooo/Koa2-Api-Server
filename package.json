@@ -11,7 +11,8 @@
     "production": "node dist/app.js",
     "test": "jest",
     "link": "eslint .",
-    "link:fix": "eslint --fix ."
+    "link:fix": "eslint --fix .",
+    "db":"sequelize-auto -o \"./src/models\" -d sw3k_tm -h localhost -u root -p 3306 -x Anshare.cc -e mysql"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
