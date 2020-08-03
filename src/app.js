@@ -24,6 +24,10 @@ const env = process.env.NODE_ENV || 'development' // Current mode
 
 const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
 
+/**
+ * 洋葱模型
+ * 配置路由
+ */
 app
   .use((ctx, next) => {
     if (ctx.request.header.host.split(':')[0] === 'localhost' || ctx.request.header.host.split(':')[0] === '127.0.0.1') {
@@ -38,7 +42,7 @@ app
   })
   .use(ErrorRoutesCatch())
   .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
-  .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] }))
+  .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] })) // 正则匹配 /public /user /login /assets 不作token验证
   .use(KoaBody({
     multipart: true,
     parsedMethods: ['POST', 'PATCH', 'GET', 'HEAD'], // parse GET, HEAD, DELETE requests
