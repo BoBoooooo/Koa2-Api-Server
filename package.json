@@ -15,7 +15,7 @@
     "db":"sequelize-auto -o \"./src/models\" -d sw3k_tm -h localhost -u root -p 3306 -x Anshare.cc -e mysql"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
     "koa-compose": "^4.1.0",
